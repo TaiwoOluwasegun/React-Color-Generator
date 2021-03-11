@@ -5,12 +5,20 @@ import Values from 'values.js'
 
 function App() {
   const [color, setColor] = useState('')
-  const [errorr, setError] = useState(false)
+  const [error, setError] = useState(false)
   const [list,setList] = useState([''])
 
   const handleSubmit = (e)=>{
     e.preventDefault();
-    console.log('hello')
+
+    try {
+      let colors= new Values(color).all(10)
+      console.log(colors)
+    } catch (error) {
+      setError(true);
+      console.log(error)
+    }
+   
   }
 
   return (
@@ -19,9 +27,9 @@ function App() {
       <h3>Color Generator</h3>
 
       <form onSubmit={handleSubmit}>
-        <input value={color} onChange={(e)=>{setColor(e.target.value)}} placeholder='enter a color code' type='text'></input>
+        <input className={`${error? 'error': null}`} value={color} onChange={(e)=>{setColor(e.target.value)}} placeholder='enter a color code' type='text'></input>
 
-        <button className='btn' type='button'> Submit </button>
+        <button className='btn' type='submit'> Submit </button>
 
       </form>
 
