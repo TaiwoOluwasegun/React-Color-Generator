@@ -35,8 +35,8 @@ function App() {
 
     </section>
     <section className='colors'>
-      <h4>Colors Goes Here</h4>
       {list.map(((color,index)=>{
+        console.log(color);
         return (<SingleColor key={index} {...color} index={index}>
 
         </SingleColor>)
