@@ -24,7 +24,7 @@ function App() {
   return (
     <> 
     <section className='container'>
-      <h3>Color Generator</h3>
+      <h3>Color Generator Project</h3>
 
       <form onSubmit={handleSubmit}>
         <input className={`${error? 'error': null}`} value={color} onChange={(e)=>{setColor(e.target.value)}} placeholder='enter a color code' type='text'></input>
